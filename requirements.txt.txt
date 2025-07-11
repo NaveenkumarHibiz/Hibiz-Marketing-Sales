@@ -1,0 +1,6 @@
+streamlit
+openai
+pinecone
+beautifulsoup
+ollama
+jinja2
