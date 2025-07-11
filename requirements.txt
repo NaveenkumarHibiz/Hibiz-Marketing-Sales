@@ -3,3 +3,4 @@ openai
 pinecone
 beautifulsoup4
 ollama
+langchain-google-genai
