@@ -4,3 +4,4 @@ pinecone
 beautifulsoup4
 ollama
 langchain-google-genai
+dotenv
