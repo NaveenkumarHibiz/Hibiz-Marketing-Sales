@@ -3,7 +3,6 @@ from bs4 import BeautifulSoup
 import os
 import ollama
 import json
-from langchain_google_genai import GoogleGenerativeAIEmbeddings
 from pinecone import Pinecone
 from pinecone.grpc import PineconeGRPC as Pinecone
 from pinecone import ServerlessSpec
@@ -37,7 +36,7 @@ pc = Pinecone(api_key=PINECONE_API_KEY)
 index = pc.Index(host = PINECONE_HOST_URL)
 
 client = OpenAI(api_key=OPENAI_API_KEY)
-EMBEDDINGS = GoogleGenerativeAIEmbeddings(model="models/gemini-embedding-exp-03-07", google_api_key=GOOGLE_API_KEY)
+# EMBEDDINGS = GoogleGenerativeAIEmbeddings(model="models/gemini-embedding-exp-03-07", google_api_key=GOOGLE_API_KEY)
 
 
 headers = {
@@ -52,9 +51,9 @@ def get_openai_embedding(text, model="text-embedding-3-small"):
     text = text.replace("\n", " ")
     return client.embeddings.create(input = [text], model=model).data[0].embedding
 
-def get_gemini_embedding(chunk_data):
-    vector = EMBEDDINGS.embed_query(chunk_data, output_dimensionality = 1536)
-    return vector
+# def get_gemini_embedding(chunk_data):
+#     vector = EMBEDDINGS.embed_query(chunk_data, output_dimensionality = 1536)
+#     return vector
 
 
 with open("prompt_template.md", "r", encoding="utf-8") as f:
