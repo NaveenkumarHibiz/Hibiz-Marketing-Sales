@@ -2,5 +2,6 @@ streamlit
 openai
 pinecone
 beautifulsoup
+bs4
 ollama
 jinja2
