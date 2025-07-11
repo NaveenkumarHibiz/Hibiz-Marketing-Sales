@@ -116,8 +116,8 @@ def get_prompt_response(user_input, service_url, client):
     final_prompt = template.render(
         user_input=user_input,
         services=get_services_provided(service_url),
-        testimonial_data=search_testimonials(get_gemini_embedding(user_input)),
-        certification_data=search_certifications(get_gemini_embedding(user_input))
+        testimonial_data=search_testimonials(get_openai_embedding(user_input)),
+        certification_data=search_certifications(get_openai_embedding(user_input))
     )
     response = client.chat.completions.create(  
         model = 'gpt-4.1', 
